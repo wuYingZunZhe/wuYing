@@ -1,0 +1,29 @@
+<div>
+	输入日期：<input type="text" id="day">
+	<input type="button" value="生日查询" onclick="sDay()">
+</div>
+<script>
+//生日提醒,输入日期，弹出星期几，如果是周六、周末，提前一天提醒；
+function sDay(){
+var bir=day.value;
+document.write("日期:"+bir+"<br>");
+var bir=new Date(bir);
+switch (bir.getDay())
+{
+case 0:document.write("星期："+'Sunday');break;
+case 1:document.write("星期："+'Monday');break;
+case 2:document.write("星期："+'Tuesday');break;
+case 3:document.write("星期："+'Wednesday');break;
+case 4:document.write("星期："+'Thursday');break;
+case 5:document.write("星期："+'Friday');break;
+case 6:document.write("星期："+'Saturday');break;
+default:document.write("星期："+'时间格式不正确，请重新输入！');
+}
+if (bir.getDay()==6||bir.getDay()==0)
+{
+	bir.setDate(bir.getDate()-1);
+}
+document.write(`<br>
+ 生日准备:${bir.toLocaleDateString()}`);
+ }
+</script>
